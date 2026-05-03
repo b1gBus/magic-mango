@@ -7,7 +7,7 @@ curl -fsSL https://github.com/terrapkg/subatomic-repos/raw/main/terra.repo
 
 dnf5 install -y \
 	--repofrompath "terra,https://repos.fyralabs.com/terra/$releasever" \
-	--setopt="terra.gpgkey=https://repos.fyralabs.com/terra$releasever/key.asc" \
+	--setopt='terra.gpgkey=https://repos.fyralabs.com/terra$releasever/key.asc' \
 	terra-release
 echo"::endgroup::"
 
