@@ -2,11 +2,14 @@
 
 set -ouex pipefail
 
-echo "::group::Add Terra repository for mangowm"
-curl -fsSL https://github.com/terrapkg/subatomic-repos/raw/main/terra.repo
+# 1. Start the group for logging
+echo "::group::Add Terra repository"
 
-dnf5 install terra-release
-echo"::endgroup::"
+# 2. Download the repo file directly to the correct location
+# Note the '-o' flag to specify the output path
+curl -fLo /etc/yum.repos.d/terra.repo https://github.com/terrapkg/subatomic-repos/raw/main/terra.repo
+
+echo "::endgroup::"
 
 echo "::group::Install host packages"
 PACKAGES=(
