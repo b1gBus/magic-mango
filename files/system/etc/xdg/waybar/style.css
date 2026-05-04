@@ -1,0 +1,131 @@
+@import "mocha.css";
+
+* {
+  font-family: "NotoSansM Nerd Font Propo";
+  font-size: 10px;
+  min-height: 0;
+  font-weight: bold;
+}
+
+.hyprland-workspaces {
+  min-height: 0;
+  min-width: 0;
+}
+window#waybar {
+  background: transparent;
+  background-color: @crust;
+  color: @overlay0;
+  transition-property: background-color;
+  transition-duration: 0.1s;
+}
+
+#window {
+  margin: 0;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+button {
+  box-shadow: inset 0 0px transparent;
+  border: none;
+  border-radius: 0;
+  border-bottom: 1px solid transparent;
+}
+
+button:hover {
+  box-shadow: inherit;
+  text-shadow: inherit;
+  background: inherit;
+  border-bottom: 1px solid transparent;
+}
+
+#workspaces button label {
+  padding: 0 0px;
+  border-bottom: 1px solid transparent;
+}
+#workspaces button {
+  padding: 0 0px;
+  color: @subtext1;
+  background-color: @crust;
+  border-bottom: 1px solid transparent;
+}
+
+#workspaces button.empty {
+  padding: 0 0px;
+  color: @surface0;
+  background-color: @crust;
+  border-bottom: 1px solid transparent;
+}
+#workspaces button.visible {
+  padding: 0 0px;
+  border-bottom: 1px solid @rosewater;
+}
+
+#workspaces button.hosting-monitor.visible {
+  padding: 0 0px;
+  color: @crust;
+  background-color: @subtext1;
+  border-bottom: 1px solid transparent;
+}
+
+#workspaces button.hosting-monitor.urgent {
+  padding: 0 0px;
+  color: @crust;
+  background-color: @red;
+  border-bottom: 1px solid transparent;
+}
+
+#workspaces button.urgent {
+  padding: 0 0px;
+  color: @crust;
+  background-color: @red;
+  border-bottom: 1px solid transparent;
+}
+
+#pulseaudio,
+#clock,
+#battery,
+#wireplumber,
+#tray,
+#mode,
+#scratchpad 
+
+#tray {
+  color: @crust;
+  padding-right: 8px;
+}
+
+#clock {
+  color: @overlay0;
+}
+
+#pulseaudio {
+  color: @overlay0;
+}
+
+#battery {
+  color: @overlay0;
+}
+
+#mpris {
+  margin-right: 20px;
+}
+
+/* If workspaces is the leftmost module, omit left margin */
+.modules-left > widget:first-child > #workspaces {
+  margin-left: 0;
+}
+/* If workspaces is the rightmost module, omit right margin */
+.modules-right > widget:last-child > #workspaces {
+  margin-right: 0;
+}
+#custom-launcher {
+  margin-left: 5px;
+  margin-right: 2px;
+  font-size: 13px;
+  color: @lavender;
+}
+
+tooltip {
+  background: rgba(17,17,27,1);
+}
