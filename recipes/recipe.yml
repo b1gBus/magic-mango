@@ -109,11 +109,13 @@ modules:
     brew-analytics: false
   - type: script
     snippets:
-      - "mkdir -p /etc/greetd"
-      - "ln -sf /usr/etc/greetd/config.toml /etc/greetd/config.toml"
+      - "systemctl enable greetd.service"
+      - "systemctl set-default graphical.target"
+      - "usermod -aG video,input greeter"
   - type: files
-
     files:
     - source: system/usr  # copies `files/system/*` (* means everything inside it) into your image's root folder `/`
       destination: /usr
+    - source: system/etc  # copies `files/system/*` (* means everything inside it) into your image's root folder `/`
+      destination: /etc
   - type: signing # this sets up the proper policy & signing files for signed images to work fully
