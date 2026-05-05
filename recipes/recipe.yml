@@ -107,9 +107,13 @@ modules:
   - type: brew
     nofile-limits: true
     brew-analytics: false
-
+  - type: script
+    snippets:
+      - "mkdir -p /etc/greetd"
+      - "ln -sf /usr/etc/greetd/config.toml /etc/greetd/config.toml"
   - type: files
+
     files:
-    - source: system   # copies `files/system/*` (* means everything inside it) into your image's root folder `/`
-      destination: /
+    - source: system/usr  # copies `files/system/*` (* means everything inside it) into your image's root folder `/`
+      destination: /usr
   - type: signing # this sets up the proper policy & signing files for signed images to work fully
