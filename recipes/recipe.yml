@@ -111,7 +111,6 @@ modules:
     snippets:
       - "systemctl enable greetd.service"
       - "systemctl set-default graphical.target"
-      - "usermod -aG video,input greeter"
   - type: files
     files:
     - source: system/usr  # copies `files/system/*` (* means everything inside it) into your image's root folder `/`
