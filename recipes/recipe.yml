@@ -3,7 +3,7 @@
 # image will be published to ghcr.io/<user>/<name>
 name: magic-mango
 # description will be included in the image's metadata
-description: This is my personal OS image.
+description: This is my opinionated OS image based on MangoWM
 
 # the base image to build on top of (FROM) and the version tag to use
 base-image: ghcr.io/ublue-os/base-main
@@ -12,19 +12,16 @@ image-version: 44 # latest is also supported if you want new updates ASAP
 # module configuration, executed in order
 # you can include multiple instances of the same module
 modules:
-  - type: files
-    files:
-      - source: system
-        destination: / # copies files/system/* (* means everything inside it) into your image's root folder /
-
   - type: dnf
     repos:
-      cleanup: true
+      files:
+        add:
+          - https://github.com/terrapkg/subatomic-repos/raw/main/terra.repo
       copr:
-        - atim/starship
         - lihaohong/yazi
+      cleanup: true
     install:
-      skip-unavailable: true
+      # skip-unavailable: true
       packages:
         #config
         - stow
@@ -111,4 +108,5 @@ modules:
     nofile-limits: true
     brew-analytics: false
 
+  - type: files
   - type: signing # this sets up the proper policy & signing files for signed images to work fully
